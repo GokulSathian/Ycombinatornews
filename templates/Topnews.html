@@ -1,0 +1,33 @@
+{% extends "index.html" %}
+
+{% block content %}
+  <table id="data" class="table table-striped">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>URL</th>
+        <th>Upvotes</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for i in titles %}
+        <tr>
+          <td>{{i}}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}
+
+{% block scripts %}
+  <script>
+    $(document).ready(function () {
+      $('#data').DataTable({
+        columns: [
+          null,
+          {searchable: false},
+          {orderable: false, searchable: false},
+          {orderable: false, searchable: false},
+          null],
+      });
+    });
