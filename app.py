@@ -6,10 +6,10 @@ import time
 
 
 #list created for storing urls and data
-urls=[]
-title_name=[]
-Url_link=[]
-Upvotes_data=[]
+urls=[]     #   List to store URL
+title_name=[]  #   List to store Title
+Url_link=[]   
+Upvotes_data=[]  #   List to store Upvotes for each news
 
 #Connectint to MongoDB
 client = pymongo.MongoClient(host="localhost",port=27017)
@@ -60,14 +60,10 @@ while True:
     def show_home():
         return render_template("index.html")
 
-    @app.route('/Topnews')
-    def show_home():
-        return render_template("Topnews.html",titles = title_name,url = Url_link,votes = Upvotes_data)
-
-    @app.route('/chart')
-    def google_chart():
-        return render_template("Googlechart.html",x=title_name[0],y=title_name[1],z=title_name[2],x1=Upvotes_data[0],y1=Upvotes_data[1],z1=Upvotes_data[2])
-
+    @app.route('/Topnews', methods=['POST', 'GET'])
+    def topnews():
+        table = df.to_html()
+        return render_template('Topnews.html', table=table)
 
     if __name__ == '__main__':
         app.run()

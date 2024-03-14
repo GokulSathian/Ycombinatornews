@@ -1,3 +1,4 @@
+# Description: This file contains the function to get the top three upvoted articles from the page.
 def top_three(x):
     article_upvotes=[]
     article_upvote_bckup=[]
