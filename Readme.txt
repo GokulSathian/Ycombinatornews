@@ -1,4 +1,3 @@
-
 # 📰 Hacker News Scraper
 
 🚀 A web scraping project designed to extract and display the top news from [Hacker News](https://news.ycombinator.com/), store it in MongoDB, and provide a web interface for users to view the latest, most-upvoted articles!
